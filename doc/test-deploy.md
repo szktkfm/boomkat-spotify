@@ -48,7 +48,7 @@ gcloud beta run services update boomkat-sporify \
 
 ## Localにデプロイ
 ```
-docker run -t boomakt .
+docker build -t boomakt .
 ```
 
 ```

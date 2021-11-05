@@ -141,10 +141,13 @@ def search():
     return spotify.current_user()
 
 
+
 def scr_boomkat():
     target_url = 'https://boomkat.com/new-releases'
-    r = requests.get(target_url) 
-    soup = BeautifulSoup(r.text, 'lxml') 
+    ua = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+    headers = {'User-Agent': ua}
+    r = requests.get(target_url, headers=headers) 
+    soup = BeautifulSoup(r.text) 
     art = []
     for ar in soup.find_all('strong'):
         art.append(ar.text)
